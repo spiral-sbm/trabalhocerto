@@ -8,6 +8,9 @@ Bundler.require(*Rails.groups)
 
 module Trabalhocerto
   class Application < Rails::Application
+    config.to_prepare do
+      Devise::RegistrationController.layout "application"
+    end
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 7.1
 

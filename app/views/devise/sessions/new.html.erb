@@ -1,0 +1,51 @@
+<section class="vh-100 bg-light bg-gradient">
+<div class="container-fluid">
+<div class="row">
+<div class="col-sm-6 text-black">
+
+<div class="px-5 pt-5 ms-xl-4">
+<svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="80" height="80" viewBox="0 0 50 50">
+    <path d="M43.171,10.925L24.085,33.446l-9.667-9.015l1.363-1.463l8.134,7.585L41.861,9.378C37.657,4.844,31.656,2,25,2 C12.317,2,2,12.317,2,25s10.317,23,23,23s23-10.317,23-23C48,19.701,46.194,14.818,43.171,10.925z"></path>
+</svg>
+  <span class="h1 mb-0" style="font-family:Aclonica">Trabalho Certo</span>
+</div>
+
+<div class="d-flex align-items-center h-custom-2 px-5 ms-xl-4 mt-5 pt-5 pt-xl-0 mt-xl-n5">
+<div style="width: 23rem;">
+<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+
+<h3 class="fw-normal mb-3 pb-3" style="letter-spacing: 1px;">Entrar</h3>
+
+  <div class="form-outline mb-4">
+    <%= f.label :email, class:"form-label"%>
+    <%= f.email_field :email, autofocus: true, autocomplete: "email",  class:"form-control form-control-lg", placeholder: "Email" %>
+  </div>
+
+  <div class="form-outline mb-4">
+    <%= f.label :password, "Senha", class:"form-label" %>
+    <%= f.password_field :password, autocomplete: "current-password", class:"form-control form-control-lg", placeholder: "Senha" %>
+  </div>
+
+  <% if devise_mapping.rememberable? %>
+    <div class="mb-3">
+      <%= f.check_box :remember_me, class:"form-check-input" %>
+      <%= f.label :remember_me, "Lembre de mim", class:"form-check-label" %>
+    </div>
+  <% end %>
+
+  <div class="pt-1 mb-4">
+    <%= f.submit "Entrar", class:"btn btn-secondary btn-block form-control" %>
+  </div>
+<% end %>
+
+<%= render "devise/shared/links" %>
+</div>
+</div>
+</div>
+<div class="col-sm-6 px-0 d-none d-sm-block">
+  <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/img3.webp"
+  alt="Login image" class="w-100 vh-100" style="object-fit: cover; object-position: left;">
+</div>
+</div>
+</div>
+</section>

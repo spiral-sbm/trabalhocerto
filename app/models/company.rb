@@ -1,5 +1,9 @@
 class Company < ApplicationRecord
-    has_may :vacancies
+  # Include default devise modules. Others available are:
+  # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
+  devise :database_authenticatable, :registerable,
+         :recoverable, :rememberable, :validatable
+    has_many :vacancies
 
     validates :name, presence: true
     validates :descriotion, length: { minumum: 3, maximum: 1000 }, presence: true
