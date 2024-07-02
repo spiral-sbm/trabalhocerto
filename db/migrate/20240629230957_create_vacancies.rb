@@ -3,7 +3,7 @@ class CreateVacancies < ActiveRecord::Migration[7.1]
     create_table :vacancies do |t|
       t.string :title
       t.string :location
-      t.text :descriotion
+      t.text :description
       t.string :requirements
       t.string :salary
       t.boolean :available
