@@ -1,14 +1,39 @@
-<p style="color: green"><%= notice %></p>
-
-<h1>Vacancies</h1>
-
-<div id="vacancies">
-  <% @vacancies.each do |vacancy| %>
-    <%= render vacancy %>
-    <p>
-      <%= link_to "Show this vacancy", vacancy %>
-    </p>
-  <% end %>
+<div class="container">
+<h1 class="display-3">Minhas Vagas:</h1>
+<table class="table table-striped table-hover">
+  <thead>
+    <tr>
+      <th scope="col">Anuncio</th>
+      <th scope="col">Criação</th>
+      <th scope="col">Candidatos</th>
+      <th colspan="2" scope="col">Ações</th>
+    </tr>
+  </thead>
+  <tbody class="text-secondary">
+    <% @vacancies.each do |vacancy| %>
+      <tr>
+        <td class="align-middle"> <%= vacancy.title %> </td>
+        <td class="align-middle"> <%= vacancy.created_at.strftime('%d/%m/%Y') %> </td>
+        <td class="align-middle"> <%= vacancy.applicants.count %> </td>
+        <td class="align-middle">
+          <%= link_to edit_vacancy_path(vacancy), class: "text-secondary" do %>
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" id="edit"><path fill="none" d="M0 0h24v24H0V0z"></path><path d="M3 17.46v3.04c0 .28.22.5.5.5h3.04c.13 0 .26-.05.35-.15L17.81 9.94l-3.75-3.75L3.15 17.1c-.1.1-.15.22-.15.36zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"></path></svg>
+            Editar
+          <% end %>
+        </td>
+        <td class="align-middle">
+          <%= link_to "/applicants", class: "text-secondary" do %>
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" id="user"><path fill="#000" fill-rule="evenodd" d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10Zm3-12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Zm-9 7a7.489 7.489 0 0 1 6-3 7.489 7.489 0 0 1 6 3 7.489 7.489 0 0 1-6 3 7.489 7.489 0 0 1-6-3Z" clip-rule="evenodd"></path></svg> 
+            Candidatos
+          <% end %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<div class="d-flex justify-content-center">
+<div class="mw-auto mt-5">
+<%= paginate @vacancies %>
 </div>
-
-<%= link_to "New vacancy", new_vacancy_path %>
+</div>
+</div>

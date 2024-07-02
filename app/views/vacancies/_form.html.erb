@@ -10,43 +10,52 @@
       </ul>
     </div>
   <% end %>
+<div class="row">
+<div class="col">
 
-  <div>
-    <%= form.label :title, style: "display: block" %>
-    <%= form.text_field :title %>
+  <div class="form-outline">
+    <%= form.label :title, "Nome da Vaga", class: "form-label" %>
+    <%= form.text_field :title, class:"form-control"  %>
   </div>
 
-  <div>
-    <%= form.label :location, style: "display: block" %>
-    <%= form.text_field :location %>
+</div>
+<div class="col">
+
+  <div class="form-outline">
+    <%= form.label :location, "Local da Vaga", class:"form-label" %>
+    <%= form.text_field :location, class:"form-control" %>
   </div>
 
-  <div>
-    <%= form.label :descriotion, style: "display: block" %>
-    <%= form.text_area :descriotion %>
+</div>
+</div>
+
+<hr />
+  <div class="form-outline mb-4">
+    <%= form.label :description, "Descrição da vaga", class:"form-label" %>
+    <%= form.text_area :description, class:"form-control", rows:"8" %>
   </div>
 
+<div class="row">
+<div class="col">
+  <div class="form-outline">
+    <%= form.label :requirements, "Requisitos", class:"form-label" %>
+    <%= form.text_field :requirements, class:"form-control" %>
+  </div>
+</div>
+<div class="col">
+  <div class="form-outline">
+    <%= form.label :salary, "Salario", class:"form-label" %>
+    <%= form.text_field :salary, class:"form-control" %>
+  </div>
+</div>
+</div>
+<hr />
   <div>
-    <%= form.label :requirements, style: "display: block" %>
-    <%= form.text_field :requirements %>
+    <%= form.check_box :available, class:"form-check-label" %>
+    <%= form.label :available, "Disponível", class:"form-label" %>
   </div>
 
-  <div>
-    <%= form.label :salary, style: "display: block" %>
-    <%= form.text_field :salary %>
-  </div>
-
-  <div>
-    <%= form.label :available, style: "display: block" %>
-    <%= form.check_box :available %>
-  </div>
-
-  <div>
-    <%= form.label :company_id, style: "display: block" %>
-    <%= form.text_field :company_id %>
-  </div>
-
-  <div>
-    <%= form.submit %>
+  <div class="mt-2">
+    <%= form.submit "Criar Vaga", class:"btn btn-secondary btn-block form-control" %>
   </div>
 <% end %>

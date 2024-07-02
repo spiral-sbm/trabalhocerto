@@ -26,7 +26,7 @@
           <a class="nav-link" href="/vacancies/new">Anunciar</a>
         </li>
         <li>
-          <a class="nav-link" href="/vacancies">Anunciar</a>
+          <a class="nav-link" href="/vacancies">Meus Anuncios</a>
         </li>
         <% end %>
       </ul>
@@ -36,7 +36,7 @@
       <ul class="navbar-nav ms-auto">
       <% if company_signed_in? %>
         <li class="nav-item">
-            <% link_to('Sair', destroy_session_path, data: { turbo_method: :delete, turbo_confirm: "Tem certeza?" }) %>
+          <%= link_to 'Logout', destroy_company_session_path, method: :delete %>
         </li>
         <% else %>
         <li class="nav-item">
